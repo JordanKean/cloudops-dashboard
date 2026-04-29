@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudOps Dashboard</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: 'Segoe UI', sans-serif; background: #0D1B4B;
+             color: #fff; min-height: 100vh; }
+      .topbar { background: #1E2761; padding: 16px 32px; display: flex;
+                justify-content: space-between; align-items: center;
+                border-bottom: 3px solid #00C2FF; }
+      /* VERSION 2 CHANGE: border-bottom colour above → #2EC4B6 */
+      .topbar h1 { font-size: 22px; color: #00C2FF; letter-spacing: 2px; }
+      /* VERSION 2 CHANGE: h1 colour above → #2EC4B6 */
+      .version-badge { background: #028090; padding: 6px 16px;
+                       border-radius: 20px; font-size: 13px; font-weight: bold; }
+	/* VERSION 2 CHANGE: version-badge background → #1B7A34 */
+      .grid { display: grid; grid-template-columns: repeat(3,1fr);
+              gap: 20px; padding: 32px; }
+      .card { background: #1E2761; border-radius: 12px; padding: 24px;
+              border: 1px solid #2a3875; }
+      .card h3 { font-size: 12px; color: #64748B; letter-spacing: 3px;
+                 text-transform: uppercase; margin-bottom: 12px; }
+      .status-row { display: flex; align-items: center; gap: 10px; margin: 8px 0; }
+      .dot { width: 10px; height: 10px; border-radius: 50%; }
+      .green { background: #2EC4B6; }
+      .yellow { background: #F4A261; }
+      .big-stat { font-size: 40px; font-weight: bold; color: #00C2FF; }
+      /* VERSION 2 CHANGE: big-stat colour → #2EC4B6 */
+      .sub { font-size: 13px; color: #64748B; margin-top: 4px; }
+      .pipeline-bar { background: #0D1B4B; border-radius: 8px; padding: 12px 16px;
+                      margin: 8px 0; display: flex; justify-content: space-between;
+                      align-items: center; border-left: 4px solid #00C2FF; }
+      /* VERSION 2 CHANGE: pipeline-bar border-left → #2EC4B6 */
+      .tag { font-size: 11px; padding: 3px 10px; border-radius: 10px;
+             font-weight: bold; }
+      .tag-pass { background: #2EC4B620; color: #2EC4B6; }
+      .tag-run  { background: #F4A26120; color: #F4A261; }
+      .footer { text-align: center; padding: 20px; color: #2a3875;
+                font-size: 12px; border-top: 1px solid #1E2761; }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <h1>☁️  CLOUDOPS DASHBOARD</h1>
+      <span class="version-badge">🚀 Version 1 — Deployed via Pipeline</span>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>Pipeline Status</h3>
+        <div class="status-row"><div class="dot green"></div>
+          <span>main → production</span><span class="tag tag-pass">PASSED</span></div>
+        <div class="status-row"><div class="dot green"></div>
+          <span>staging → deploy</span><span class="tag tag-pass">PASSED</span></div>
+        <div class="status-row"><div class="dot yellow"></div>
+          <span>feature/auth</span><span class="tag tag-run">RUNNING</span></div>
+      </div>
+      <div class="card">
+        <h3>Deployments Today</h3>
+        <div class="big-stat">12</div>
+        <div class="sub">up 3 from yesterday</div>
+      </div>
+      <div class="card">
+        <h3>Server Health</h3>
+        <div class="status-row"><div class="dot green"></div>
+          <span>web-prod-01 — Online</span></div>
+        <div class="status-row"><div class="dot green"></div>
+          <span>web-prod-02 — Online</span></div>
+        <div class="status-row"><div class="dot green"></div>
+          <span>db-primary  — Online</span></div>
+      </div>
+      <div class="card">
+        <h3>Recent Deployments</h3>
+        <div class="pipeline-bar"><span>deploy #47</span>
+          <span class="tag tag-pass">✓ 38s</span></div>
+        <div class="pipeline-bar"><span>deploy #46</span>
+          <span class="tag tag-pass">✓ 41s</span></div>
+        <div class="pipeline-bar"><span>deploy #45</span>
+          <span class="tag tag-pass">✓ 35s</span></div>
+      </div>
+      <div class="card">
+	 <h3>Test Coverage</h3>
+        <div class="big-stat">94<span style="font-size:22px">%</span></div>
+        <div class="sub">847 tests passing</div>
+      </div>
+      <div class="card">
+        <h3>Last Deployed By</h3>
+        <div style="margin-top:8px">
+          <div style="font-size:28px">👨‍💻</div>
+          <div style="margin-top:8px;font-weight:bold">Mohith</div>
+          <div class="sub">via GitHub Actions · just now</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      CloudOps Internal Dashboard · Deployed automatically via CI/CD Pipeline
+    </div>
+  </body>
+  </html>
